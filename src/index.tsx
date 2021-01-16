@@ -1,1 +1,1 @@
-console.log("File index tsx");
+console.log('File index tsx');
