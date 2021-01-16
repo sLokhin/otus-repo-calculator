@@ -4,6 +4,7 @@
   "description": "Calculator project",
   "main": "index.js",
   "scripts": {
+    "build": "npx webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/sLokhin/otus-repo-calculator/issues"
   },
-  "homepage": "https://github.com/sLokhin/otus-repo-calculator#readme"
+  "homepage": "https://github.com/sLokhin/otus-repo-calculator#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.5.1",
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1"
+  }
 }
