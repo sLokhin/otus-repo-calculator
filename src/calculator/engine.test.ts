@@ -8,6 +8,14 @@ describe("zeroPrioritiesCalc simple cases", () => {
   it("[3, !, !]", () => {
     expect(zeroPrioritiesCalc([3, "!", "!"])).toEqual([720]);
   });
+
+  it("[3, !, **]", () => {
+    expect(zeroPrioritiesCalc([3, "!", "**"])).toEqual([36]);
+  });
+
+  it("[5, !, **]", () => {
+    expect(zeroPrioritiesCalc([5, "!", "**"])).toEqual([14400]);
+  });
 });
 
 describe("firstPrioritiesCalc simple cases", () => {
@@ -21,6 +29,18 @@ describe("firstPrioritiesCalc simple cases", () => {
 
   it("[26, + 26]", () => {
     expect(firstPrioritiesCalc([26, "+", 26])).toEqual([26, "+", 26]);
+  });
+});
+
+describe("zeroPrioritiesCalc mixed with first priorities cases", () => {
+  it("[100, -, 2, **, !, +, 500]", () => {
+    expect(zeroPrioritiesCalc([100, "-", 2, "**", "!", "+", 500])).toEqual([
+      100,
+      "-",
+      24,
+      "+",
+      500
+    ]);
   });
 });
 

@@ -4,7 +4,7 @@ import { mathOperators } from "./mathOperators";
 export type ParsedLineType = (number | string)[];
 
 const isSingleOpearandFunction = (operand: string): boolean => {
-  return ["!"].includes(operand);
+  return ["!", "**"].includes(operand);
 }
 
 export const parser = (line: string): ParsedLineType | null => {

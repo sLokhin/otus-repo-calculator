@@ -36,6 +36,10 @@ describe("Runner long cases", () => {
   it("20 - 10 * 10 / 5 - 3", () => {
     expect(runner("20 - 10 * 10 / 5 - 3")).toEqual(-3);
   });
+
+  it("100 - 2 ** ! + 500", () => {
+    expect(runner("100 - 2 ** ! + 500")).toEqual(576);
+  });
 });
 
 describe("Factorial cases", () => {

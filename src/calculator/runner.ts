@@ -15,6 +15,7 @@ export const runner = (line: string): number => {
     return Number(zeroPrioritiesRes[0]);
   }
 
+
   const firstPrioritiesRes = firstPrioritiesCalc(zeroPrioritiesRes);
 
   if (firstPrioritiesRes.length === 1) {
