@@ -44,6 +44,18 @@ describe("zeroPrioritiesCalc mixed with first priorities cases", () => {
   });
 });
 
+describe("zeroPrioritiesCalc mixed with first and second priorities cases", () => {
+  it("[5, **, *, 2, ^, 2, !, +, 1]", () => {
+    expect(zeroPrioritiesCalc([5, "**", "*", 2, "^", 2, "!", "+", 1])).toEqual([
+      25,
+      "*",
+      24,
+      "+",
+      1
+    ]);
+  });
+});
+
 describe("firstPrioritiesCalc mixed with second priorities cases", () => {
   it("[32, /, 16, +, 5, *, 20]", () => {
     expect(firstPrioritiesCalc([32, "/", 16, "+", 5, "*", 20])).toEqual([

@@ -21,6 +21,11 @@ export const minus: ScalarOperationType = (
   second: number
 ): number => first - second;
 
+export const pow: ScalarOperationType = (
+  first: number,
+  second: number
+): number => Math.pow(first, second);
+
 export const factorial: SingleOperandType = (
   first: number
 ): number => first ? first * factorial(first - 1) : 1;
@@ -34,6 +39,7 @@ export const mathOperators: { [key: string]: ScalarOperationType } = {
   "/": div,
   "+": add,
   "-": minus,
+  "^": pow,
   "!": factorial,
   "**": doublePow
 };
@@ -43,6 +49,7 @@ export const mathPriorities: number[] = [0, 1, 2];
 const [ZERO, FIRST, SECOND] = mathPriorities;
 
 export const mathOperatorsPriorities: { [key: string]: number } = {
+  "^": ZERO,
   "**": ZERO,
   "!": ZERO,
   "*": FIRST,

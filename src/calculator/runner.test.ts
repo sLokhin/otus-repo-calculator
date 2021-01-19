@@ -40,6 +40,10 @@ describe("Runner long cases", () => {
   it("100 - 2 ** ! + 500", () => {
     expect(runner("100 - 2 ** ! + 500")).toEqual(576);
   });
+
+  it("[5, **, *, 2, ^, 2, !, +, 1]", () => {
+    expect(runner("5 ** * 2 ^ 2 ! + 1")).toEqual(601);
+  });
 });
 
 describe("Factorial cases", () => {
