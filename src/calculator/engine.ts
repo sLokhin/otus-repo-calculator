@@ -4,9 +4,32 @@ import {
   mathOperators,
   mathPriorities,
   mathOperatorsPriorities,
+  ScalarOperationType,
+  SingleOperandType
 } from "./mathOperators";
 
-const [FIRST, SECOND] = mathPriorities;
+const [ZERO, FIRST, SECOND] = mathPriorities;
+
+export const zeroPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
+  stack.reduce<ParsedLineType>((result, nextItem) => {
+    const item = result[result.length - 1];
+
+    if (!isNumber(String(nextItem)) && mathOperatorsPriorities[nextItem] === ZERO) {
+      if (!mathOperators[nextItem]) {
+        throw new TypeError("Unexpected stack!");
+      }
+
+      const operator = mathOperators[nextItem] as SingleOperandType;
+
+      result = [
+        ...result.slice(0, -1),
+        operator(Number(item)),
+      ];
+    } else {
+      result.push(nextItem);
+    }
+    return result;
+  }, []);
 
 export const firstPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
   stack.reduce<ParsedLineType>((result, nextItem) => {
@@ -25,6 +48,7 @@ export const firstPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
       result.push(nextItem);
     }
     return result;
+
   }, []);
 
 export const secondPrioritiesCalc = (stack: ParsedLineType): number =>
