@@ -5,7 +5,7 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // type FIXME = any;
-type FIXME = Array<string>;
+type FIXME = Array<OrderState>;
 
 const orderStates = [
   "initial",
