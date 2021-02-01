@@ -1,9 +1,11 @@
 // Задание первого уровня 1
 // В функцию приходит массив состояний заказа и фильтруется
-// Нужно заменить FIXME на тип который вычисляется на освове OrderState
+// Нужно заменить FIXME на тип который вычисляется на основе OrderState
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type FIXME = any;
+
+// type FIXME = any;
+type FIXME = Array<string>;
 
 const orderStates = [
   "initial",
