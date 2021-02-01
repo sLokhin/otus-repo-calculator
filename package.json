@@ -1,0 +1,48 @@
+{
+  "name": "otus-repo-calculator",
+  "version": "1.0.0",
+  "description": "Calculator project",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack --mode production",
+    "test": "npx jest",
+    "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --fix src/",
+    "calc": "npx ts-node src/calculator"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sLokhin/otus-repo-calculator.git"
+  },
+  "author": "Sergey Lokhin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sLokhin/otus-repo-calculator/issues"
+  },
+  "homepage": "https://github.com/sLokhin/otus-repo-calculator#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.21",
+    "@types/webpack": "^4.41.26",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^7.18.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "html-webpack-plugin": "^4.5.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3",
+    "webpack": "^5.15.0",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
