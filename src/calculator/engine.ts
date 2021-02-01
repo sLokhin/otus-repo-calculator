@@ -29,10 +29,6 @@ export const zeroPrioritiesCalc = (stack: ParsedLineType): ParsedLineType => {
     let operator, operandsCount, resultNumber;
 
     if (!isNumber(String(item)) && mathOperatorsPriorities[item] === ZERO) {
-      if (!mathOperators[item]) {
-        throw new TypeError("Unexpected stack!");
-      }
-
       if (isSingleOpearandFunction(String(item))) {
         operandsCount = 1;
         operator = mathOperators[String(item)] as SingleOperandType;
@@ -90,7 +86,7 @@ export const secondPrioritiesCalc = (stack: ParsedLineType): number =>
   stack.reduce<number>((result, nextItem, key) => {
     const item = stack[key - 1];
 
-    if (mathOperatorsPriorities[item] === FIRST) {
+    if ([ZERO, FIRST].indexOf(mathOperatorsPriorities[item]) !== -1) {
       throw new TypeError("Unexpected stack!");
     }
 

@@ -1,6 +1,10 @@
 import { zeroPrioritiesCalc, firstPrioritiesCalc, secondPrioritiesCalc } from "./engine";
 
 describe("zeroPrioritiesCalc simple cases", () => {
+  it("[5, /]", () => {
+    expect(zeroPrioritiesCalc([5, "/"])).toEqual([5, "/"]);
+  });
+
   it("[0, !]", () => {
     expect(zeroPrioritiesCalc([0, "!"])).toEqual([1]);
   });
@@ -69,6 +73,24 @@ describe("firstPrioritiesCalc mixed with second priorities cases", () => {
 describe("secondPrioritiesCalc invalid cases", () => {
   it("[32, / 32]", () => {
     expect(() => secondPrioritiesCalc([32, "/", 32])).toThrow(
+      TypeError("Unexpected stack!")
+    );
+  });
+
+  it("[5, !, 2]", () => {
+    expect(() => secondPrioritiesCalc([5, "!", 2])).toThrow(
+      TypeError("Unexpected stack!")
+    );
+  });
+
+  it("[5, **, 0]", () => {
+    expect(() => secondPrioritiesCalc([5, "**", 0])).toThrow(
+      TypeError("Unexpected stack!")
+    );
+  });
+
+  it("[5, ^, 2]", () => {
+    expect(() => secondPrioritiesCalc([5, "^", 2])).toThrow(
       TypeError("Unexpected stack!")
     );
   });

@@ -1,12 +1,28 @@
 import { mul, div, add, minus, pow, factorial, doublePow } from "./mathOperators";
 
 describe("mathOperators test cases", () => {
+  it("mul 0 * 0 to equal 0", () => {
+    expect(mul(0, 0)).toBe(0);
+  });
+
+  it("mul 2 * -2 to equal -4", () => {
+    expect(mul(2, -2)).toBe(-4);
+  });
+
   it("mul 1 * 2 to equal 2", () => {
     expect(mul(1, 2)).toBe(2);
   });
 
   it("mul 2 * 2 to equal 4", () => {
     expect(mul(2, 2)).toBe(4);
+  });
+
+  it("div 2 / 0 to equal 0", () => {
+    expect(div(2, 0)).toBe(Infinity);
+  });
+
+  it("div 0 / 2 to equal 0", () => {
+    expect(div(0, 2)).toBe(0);
   });
 
   it("div 2 / 2 to equal 1", () => {
@@ -17,8 +33,24 @@ describe("mathOperators test cases", () => {
     expect(div(4, 2)).toBe(2);
   });
 
+  it("add 0 + 0 to equal 0", () => {
+    expect(add(0, 0)).toBe(0);
+  });
+
+  it("add -1 + 1 to equal 0", () => {
+    expect(add(-1, 1)).toBe(0);
+  });
+
   it("add 4 + 2 to equal 6", () => {
     expect(add(4, 2)).toBe(6);
+  });
+
+  it("minus 0 - 0 to equal 0", () => {
+    expect(minus(0, 0)).toBe(0);
+  });
+
+  it("minus 5 - 7 to equal -2", () => {
+    expect(minus(5, 7)).toBe(-2);
   });
 
   it("minus 4 - 2 to equal 2", () => {
