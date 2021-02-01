@@ -5,7 +5,7 @@ export type ParsedLineType = (number | string)[];
 
 const isSingleOpearandFunction = (operand: string): boolean => {
   return ["!", "**"].includes(operand);
-}
+};
 
 export const parser = (line: string): ParsedLineType | null => {
   const stack = line.split(" ");
@@ -14,15 +14,15 @@ export const parser = (line: string): ParsedLineType | null => {
 
     const isValidNumberPush = !isNumber(prevItem) && isNumber(item);
     const isValidOperatorPush =
-    (isNumber(prevItem) || isSingleOpearandFunction(prevItem)) &&
+      (isNumber(prevItem) || isSingleOpearandFunction(prevItem)) &&
       !isNumber(item) &&
       mathOperators.hasOwnProperty(item);
 
     const isValidSingleOperandOpearatorPush =
       (isNumber(prevItem) || isSingleOpearandFunction(prevItem)) &&
       !isNumber(item) &&
-      isSingleOpearandFunction(item)
-      mathOperators.hasOwnProperty(item);
+      isSingleOpearandFunction(item);
+    mathOperators.hasOwnProperty(item);
 
     if (isValidNumberPush) {
       result.push(Number(item));

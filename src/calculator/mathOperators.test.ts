@@ -1,4 +1,12 @@
-import { mul, div, add, minus, pow, factorial, doublePow } from "./mathOperators";
+import {
+  mul,
+  div,
+  add,
+  minus,
+  pow,
+  factorial,
+  doublePow,
+} from "./mathOperators";
 
 describe("mathOperators test cases", () => {
   it("mul 0 * 0 to equal 0", () => {

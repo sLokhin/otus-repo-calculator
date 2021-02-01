@@ -1,4 +1,8 @@
-import { zeroPrioritiesCalc, firstPrioritiesCalc, secondPrioritiesCalc } from "./engine";
+import {
+  zeroPrioritiesCalc,
+  firstPrioritiesCalc,
+  secondPrioritiesCalc,
+} from "./engine";
 
 describe("zeroPrioritiesCalc simple cases", () => {
   it("[5, /]", () => {
@@ -43,7 +47,7 @@ describe("zeroPrioritiesCalc mixed with first priorities cases", () => {
       "-",
       24,
       "+",
-      500
+      500,
     ]);
   });
 });
@@ -55,7 +59,7 @@ describe("zeroPrioritiesCalc mixed with first and second priorities cases", () =
       "*",
       24,
       "+",
-      1
+      1,
     ]);
   });
 });

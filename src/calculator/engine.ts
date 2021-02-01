@@ -5,21 +5,21 @@ import {
   mathPriorities,
   mathOperatorsPriorities,
   ScalarOperationType,
-  SingleOperandType
+  SingleOperandType,
 } from "./mathOperators";
 
 const [ZERO, FIRST, SECOND] = mathPriorities;
 
 const isSingleOpearandFunction = (operand: string): boolean => {
   return ["!", "**"].includes(operand);
-}
+};
 
 export const zeroPrioritiesCalc = (stack: ParsedLineType): ParsedLineType => {
-  const specialEndingSymbol: string = "$endOfMass"
-  const lastInitMassItem = stack[stack.length - 1]
+  const specialEndingSymbol = "$endOfMass";
+  const lastInitMassItem = stack[stack.length - 1];
 
   if (isSingleOpearandFunction(String(lastInitMassItem))) {
-    stack.push(specialEndingSymbol)
+    stack.push(specialEndingSymbol);
   }
 
   const resultMass = stack.reduce<ParsedLineType>((result, nextItem) => {
@@ -39,28 +39,23 @@ export const zeroPrioritiesCalc = (stack: ParsedLineType): ParsedLineType => {
         resultNumber = operator(Number(prevItem), Number(nextItem));
       }
 
-      result = [
-        ...result.slice(0, -2),
-        resultNumber,
-      ];
+      result = [...result.slice(0, -2), resultNumber];
 
       if (operandsCount === 1) {
-        result.push(nextItem)
+        result.push(nextItem);
       }
-
     } else {
       result.push(nextItem);
     }
     return result;
-
   }, []);
 
   let finalMass = [...resultMass];
   if (resultMass[resultMass.length - 1] === specialEndingSymbol) {
-    finalMass = finalMass.slice(0, -1)
+    finalMass = finalMass.slice(0, -1);
   }
   return finalMass;
-}
+};
 
 export const firstPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
   stack.reduce<ParsedLineType>((result, nextItem) => {
@@ -79,7 +74,6 @@ export const firstPrioritiesCalc = (stack: ParsedLineType): ParsedLineType =>
       result.push(nextItem);
     }
     return result;
-
   }, []);
 
 export const secondPrioritiesCalc = (stack: ParsedLineType): number =>
