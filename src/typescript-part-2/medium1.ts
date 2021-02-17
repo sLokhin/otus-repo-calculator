@@ -8,7 +8,10 @@
 
 // type FIXME = any;
 
-type onlyInitialOrInWork = Extract<Order, { state: "initial" } | { state: "inWork" }>;
+type onlyInitialOrInWork = Extract<
+  Order,
+  { state: "initial" } | { state: "inWork" }
+>;
 type FIXME = onlyInitialOrInWork | null;
 
 type Order =

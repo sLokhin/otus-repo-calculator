@@ -21,4 +21,4 @@ export const getDefaultProps = <T>(
   return component.defaultProps as FIXME<T>;
 };
 
-console.log("EXECUTE medium-2 :", getDefaultProps(TestComponent))
+console.log("EXECUTE medium-2 :", getDefaultProps(TestComponent));
