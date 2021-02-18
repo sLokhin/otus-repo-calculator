@@ -1,5 +1,6 @@
 import { getTopName, createQs, parseQs, QsObj } from "./pure-functions";
 
+// Task 1
 test("getTopName test", () => {
   const teams0 = [
     { name: "Team0", score: 0 },
@@ -27,6 +28,7 @@ test("getTopName test", () => {
   expect(getTopName(teams2)).toBe("Team3");
 });
 
+// Task 2
 test("createQs test", () => {
   const qsObj0: QsObj = {
     page: "2",
@@ -55,6 +57,7 @@ test("createQs test", () => {
   expect(createQs(qsObj2)).toBe("?page=99");
 });
 
+// Task 3
 test("parseQs test", () => {
   const qs0 = "?page=2&pageSize=10&total=205&somethingElse=value";
   const qs1 = "?page=11&pageSize=12&total=350";

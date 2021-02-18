@@ -41,12 +41,14 @@ const resultTask1 = originalTeamToExpectedTeam(originalTeam);
 console.log("Task-1 -- ", resultTask1);
 
 // Задание 2
-type SomeArray = Array<number | string>;
+export type ArrayTask2 = Array<number | string>;
 
 const originalArray = [1, 2, 3, 4];
 const expectedArray = ["two", 3, 4, 5];
 
-const originalArrayToExpectedArray = (originalArray: SomeArray): SomeArray => {
+export const originalArrayToExpectedArray = (
+  originalArray: ArrayTask2
+): ArrayTask2 => {
   const copyArray = [...originalArray].slice(2);
   copyArray.unshift("two");
   copyArray.push(5);
@@ -81,7 +83,7 @@ const expectedTeamTask3: Team = {
   },
 };
 
-const originalTeamToExpectedTeamDeep = (originalTeam: Team): Team => {
+export const originalTeamToExpectedTeamDeep = (originalTeam: Team): Team => {
   const newProps = {
     captain: {
       age: 28,
