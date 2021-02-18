@@ -1,15 +1,17 @@
-// Используя чистые функции массивов map/reduce, объектов Objeсt.keys, строк string.split и т.д. получить нужный результат
-
 // 1. Лучшая команда (наибольшее кол-во очков), выводим имя
+type Team = {
+  name: string;
+  score: number;
+};
 
-const teams = [
+const teams: Team[] = [
   { name: "Lions", score: 5 },
   { name: "Tigers", score: 4 },
   { name: "Bears", score: 6 },
   { name: "Monkeys", score: 2 },
 ];
 
-const getTopName = (teams) =>
+export const getTopName = (teams: Team[]): string =>
   teams.reduce((bestTeam, currentTeam) => {
     return bestTeam.score > currentTeam.score ? bestTeam : currentTeam;
   }).name;
@@ -18,16 +20,19 @@ const resultTask1 = getTopName(teams);
 console.log(`Top team name is ${resultTask1}`);
 
 // 2. Querystring из объекта
+export type QsObj = Record<
+  string,
+  string | number | boolean | Record<string, unknown>
+>;
 
-const qsObj = {
+const qsObj: QsObj = {
   page: "2",
   pageSize: "10",
   total: "205",
   somethingElse: "value",
 };
 
-// '?page=2&pageSize=10&total=205&somethingElse=value'
-const createQs = (qsObj) => {
+export const createQs = (qsObj: QsObj): string => {
   return Object.entries(qsObj)
     .reduce((str, [key, value]) => {
       return str.concat(`${key}=${value}&`);
@@ -39,12 +44,11 @@ const resultTask2 = createQs(qsObj);
 console.log(resultTask2);
 
 // 3. Объект из querystring
-
 const qs = "?page=2&pageSize=10&total=205&somethingElse=value";
 
 // { page: '2', pageSize: '10', total: '205', somethingElse: 'value' }
 
-// const parseQs = (qs) => {
+// const parseQs = (qs: string): QsObj => {
 //   return Object.fromEntries(
 //     qs
 //       .slice(1)
@@ -56,7 +60,7 @@ const qs = "?page=2&pageSize=10&total=205&somethingElse=value";
 //   );
 // };
 
-const parseQs = (qs) => {
+export const parseQs = (qs: string): QsObj => {
   return qs
     .slice(1)
     .split("&")
@@ -64,7 +68,7 @@ const parseQs = (qs) => {
       const [key, value] = entryStr.split("=");
       resultObject[key] = value;
       return resultObject;
-    }, {});
+    }, {} as QsObj);
 };
 
 const resultTask3 = parseQs(qs);
