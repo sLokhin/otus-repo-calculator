@@ -1,4 +1,16 @@
-import { compose, sort, prop, descend, toPairs, map, join, slice } from "ramda";
+import {
+  compose,
+  sort,
+  prop,
+  descend,
+  toPairs,
+  map,
+  join,
+  slice,
+  split,
+  splitAt,
+  reduce,
+} from "ramda";
 
 // Задание 1
 export type Team = { name: string; score: number };
@@ -54,8 +66,20 @@ const resultTask2 = createQs(qsObj);
 console.log(`RAMDA task 2 --- ${resultTask2}`);
 
 // Задание 3
-export const parseQs = compose(map(split("=")), split("&"), slice(1));
+
+const getSubstring = (strMass: Array<string>): string => strMass[1];
+const createObject = (acc: QsObj, entry: Array<string>) => {
+  const [key, value] = entry;
+  return { ...acc, [key]: value };
+};
+export const parseQs = compose(
+  reduce(createObject, {}),
+  map(split("=")),
+  split("&"),
+  getSubstring,
+  splitAt(1)
+);
 
 const qs = "?page=2&pageSize=10&total=205&somethingElse=value";
 const resultTask3 = parseQs(qs);
-console.log(`RAMDA task 3 --- ${resultTask3}`));
+console.log(`RAMDA task 3 --- ${resultTask3}`);
