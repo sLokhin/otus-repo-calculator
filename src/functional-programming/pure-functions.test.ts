@@ -1,13 +1,8 @@
-import { getTopName, createQs, parseQs, QsObj } from "./pure-functions";
+import { Team, getTopName, createQs, parseQs, QsObj } from "./pure-functions";
 
 // Task 1
 test("getTopName test", () => {
-  const teams0 = [
-    { name: "Team0", score: 0 },
-    { name: "Team1", score: 1 },
-    { name: "Team2", score: 2 },
-    { name: "Team3", score: 3 },
-  ];
+  const teams0 = [] as Team[];
 
   const teams1 = [
     { name: "Team0", score: 0 },
@@ -23,7 +18,7 @@ test("getTopName test", () => {
     { name: "Team3", score: 9 },
   ];
 
-  expect(getTopName(teams0)).toBe("Team3");
+  expect(getTopName(teams0)).toBe("Default message");
   expect(getTopName(teams1)).toBe("Team0");
   expect(getTopName(teams2)).toBe("Team3");
 });

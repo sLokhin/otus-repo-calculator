@@ -1,13 +1,13 @@
 // 1. Лучшая команда (наибольшее кол-во очков), выводим имя
-type Team = {
+export type Team = {
   name: string;
   score: number;
 };
 
-export const getTopName = (teams: Team[]): string =>
+export const getTopName = (teams: Array<Team>): string =>
   teams.reduce((bestTeam, currentTeam) => {
     return bestTeam.score > currentTeam.score ? bestTeam : currentTeam;
-  }).name;
+  }, {} as Team).name || "Default message";
 
 // 2. Querystring из объекта
 export type QsObj = Record<
@@ -16,11 +16,14 @@ export type QsObj = Record<
 >;
 
 export const createQs = (qsObj: QsObj): string => {
-  return Object.entries(qsObj)
-    .reduce((str, [key, value]) => {
-      return str.concat(`${key}=${value}&`);
-    }, "?")
-    .slice(0, -1);
+  return (
+    "?" +
+    Object.entries(qsObj)
+      .map(([key, value]) => {
+        return `${key}=${value}`;
+      })
+      .join("&")
+  );
 };
 
 // 3. Объект из querystring
