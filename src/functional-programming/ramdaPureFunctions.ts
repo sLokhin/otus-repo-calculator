@@ -35,17 +35,6 @@ export const createQs = compose(
   toPairs
 );
 
-const createString = (entry: Array<string>): string =>
-  `${entry[0]}=${entry[1]}&`;
-
-// export const createQs = compose(
-//   slice(0, -1),
-//   prependQuestionSign,
-//   join(""),
-//   map(createString),
-//   toPairs
-// );
-
 // Задание 3
 const getSubstring = (strMass: Array<string>): string => strMass[1];
 const createObject = (acc: QsObj, entry: Array<string>) => {
