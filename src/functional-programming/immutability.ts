@@ -28,7 +28,7 @@ export const originalTeamToExpectedTeam = (
   keysToDelete.forEach((key) => {
     delete result[key];
   });
-  return { ...result } as ExpectedTeam;
+  return result as ExpectedTeam;
 };
 
 // Задание 2
