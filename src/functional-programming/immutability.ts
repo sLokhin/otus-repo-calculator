@@ -37,9 +37,8 @@ export type ArrayTask2 = Array<number | string>;
 export const originalArrayToExpectedArray = (
   originalArray: ArrayTask2
 ): ArrayTask2 => {
-  const copyArray = [...originalArray].slice(2);
-  copyArray.unshift("two");
-  copyArray.push(5);
+  const [num0, num1, ...submass] = originalArray;
+  const copyArray = ["two", ...submass, 5];
   return copyArray;
 };
 
