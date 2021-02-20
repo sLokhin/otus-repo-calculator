@@ -17,12 +17,6 @@ const originalTeam: OriginalTeam = {
   league: "Minor",
 };
 
-const expectedTeam: ExpectedTeam = {
-  name: "New York Badgers",
-  league: "Minor",
-  roster: 25,
-};
-
 export const originalTeamToExpectedTeam = (
   originalTeam: OriginalTeam
 ): ExpectedTeam => {
@@ -37,14 +31,8 @@ export const originalTeamToExpectedTeam = (
   return { ...result } as ExpectedTeam;
 };
 
-const resultTask1 = originalTeamToExpectedTeam(originalTeam);
-console.log("Task-1 -- ", resultTask1);
-
 // Задание 2
 export type ArrayTask2 = Array<number | string>;
-
-const originalArray = [1, 2, 3, 4];
-const expectedArray = ["two", 3, 4, 5];
 
 export const originalArrayToExpectedArray = (
   originalArray: ArrayTask2
@@ -54,9 +42,6 @@ export const originalArrayToExpectedArray = (
   copyArray.push(5);
   return copyArray;
 };
-
-const resultTask2 = originalArrayToExpectedArray(originalArray);
-console.log("Task-2 -- ", resultTask2);
 
 // Задание 3
 export type Team = {
@@ -72,14 +57,6 @@ const originalTeamTask3: Team = {
   captain: {
     name: "Bryan Downey",
     age: 27,
-  },
-};
-
-const expectedTeamTask3: Team = {
-  name: "Tampa Bay Roosters",
-  captain: {
-    name: "Bryan Downey",
-    age: 28,
   },
 };
 
@@ -102,6 +79,3 @@ export const originalTeamToExpectedTeamDeep = (originalTeam: Team): Team => {
   };
   return merge(newProps, originalTeam);
 };
-
-const resultTask3 = originalTeamToExpectedTeamDeep(originalTeamTask3);
-console.log("Task-3 -- ", resultTask3);

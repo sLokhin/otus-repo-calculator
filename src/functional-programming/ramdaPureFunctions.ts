@@ -15,20 +15,10 @@ import {
 // Задание 1
 export type Team = { name: string; score: number };
 
-const teams: Team[] = [
-  { name: "Lions", score: 5 },
-  { name: "Tigers", score: 4 },
-  { name: "Bears", score: 6 },
-  { name: "Monkeys", score: 2 },
-];
-
 const getFirstName = (teams: Array<Team>): string => teams[0].name;
 
 const byScore = descend(prop("score"));
 export const getTopName = compose(getFirstName, sort(byScore));
-
-const resultTask1 = getFirstName(teams);
-console.log(`RAMDA task 1 --- Top team name is ${resultTask1}`);
 
 // Задание 2
 export type QsObj = Record<
@@ -56,17 +46,7 @@ const createString = (entry: Array<string>): string =>
 //   toPairs
 // );
 
-const qsObj: QsObj = {
-  page: "2",
-  pageSize: "10",
-  total: "205",
-  somethingElse: "value",
-};
-const resultTask2 = createQs(qsObj);
-console.log(`RAMDA task 2 --- ${resultTask2}`);
-
 // Задание 3
-
 const getSubstring = (strMass: Array<string>): string => strMass[1];
 const createObject = (acc: QsObj, entry: Array<string>) => {
   const [key, value] = entry;
@@ -79,7 +59,3 @@ export const parseQs = compose(
   getSubstring,
   splitAt(1)
 );
-
-const qs = "?page=2&pageSize=10&total=205&somethingElse=value";
-const resultTask3 = parseQs(qs);
-console.log(`RAMDA task 3 --- ${resultTask3}`);
